@@ -11,7 +11,7 @@ This codebase implements a basic VEM analaysis on public data. The project demon
 ### Prerequisites
 
 - Python 3.10+
-- CUDA-compatible GPU (recommended for model fitting; fitting on CPU is possible but it will take more than one hour)
+- CUDA-compatible GPU (recommended for model fitting; fitting on CPU is possible but it will take a very long time!)
 - [uv](https://docs.astral.sh/uv/) - Modern Python package manager
 
 ### Setup
