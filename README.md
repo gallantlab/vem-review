@@ -32,7 +32,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 uv sync
 ```
 
-This will automatically create a virtual environment and install all required dependencies.
+This will automatically create a virtual environment and install all required dependencies, including Jupyter for running notebooks.
 
 ### Dependencies
 

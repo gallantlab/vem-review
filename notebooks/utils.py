@@ -116,3 +116,65 @@ def compute_ccnorm(Yhat, Yrep, dozscore=False):
     CCmax = np.sqrt(SP / VarY)
     CCabs = CovYYh / np.sqrt(VarY * VarYhat)
     return CCnorm, CCabs, CCmax, SP
+
+
+def columnwise_correlation(ypred, y, zscorea=True, zscoreb=True, axis=0):
+    r'''Compute the correlation coefficients
+
+    Predictions and actual responses are matrices whose columns
+    correspond to the units sampled (e.g. voxels, neurons, etc).
+
+    Parameters
+    ----------
+    ypred : 2D np.ndarray (n, v)
+        Matrix of predicted responses. The first dimension is samples.
+        The second dimension is corresponds to the measured signals.
+    y : 2D np.ndarray (n, v)
+        Matrix of actual responses.
+    zscorea, zscoreb : bool, optional
+        Defaults to True.
+        This implementation works by first z-scoring
+        the actual and predicted responses. If they are
+        already z-scored, then the computation is made
+        faster by setting these values to False.
+    axis : int, optional
+        Dimension corresponding to samples over which to correlate.
+        Defaults to 0.
+
+    Returns
+    -------
+    corr : 1D np.ndarray (v,)
+        The correlation coefficient (R2) for each
+        of the `v` responses.
+
+    Examples
+    --------
+    >>> x = np.random.randn(100,2)
+    >>> y = np.random.randn(100,2)
+    >>> cc = columnwise_correlation(x, y)
+    >>> cc.shape
+    (2,)
+    >>> c1 = np.corrcoef(x[:,0], y[:,0])[0,1]
+    >>> c2 = np.corrcoef(x[:,1], y[:,1])[0,1]
+    >>> assert np.allclose(cc, np.r_[c1, c2])
+
+    Notes
+    -----
+    Recall that the correlation cofficient is defined as
+
+    .. math::
+       \rho_{x, y} = \frac{cov(X,Y)}{var(x)var(y)}
+
+    Since it is scale invariant, we can zscore and get the same
+
+    .. math::
+       \rho_{x, y} = \rho_{zscore(x), zscore(y)} = \frac{cov(X,Y)}{1*1} =
+       \frac{1}{N}\frac{\sum_i^n \left(x_i - 0 \right) \left(y_i - 0 \right)}{1*1} =
+       \frac{1}{N}\sum_i^n \left(x_i * y_i \right)
+    '''
+    if zscorea:
+        y = zscore(y, axis=axis)
+    if zscoreb:
+        ypred = zscore(ypred, axis=axis)
+    corr = (y * ypred).mean(axis=axis)
+    return corr

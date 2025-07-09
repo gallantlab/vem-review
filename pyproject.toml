@@ -23,6 +23,8 @@ dependencies = [
     "voxelwise_tutorials",
     "torch>=2.0.0,<2.7.0",
     "adjustText",
+    "jupyter",
+    "tikreg",
 ]
 
 [project.optional-dependencies]

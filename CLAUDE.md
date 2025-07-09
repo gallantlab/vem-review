@@ -22,10 +22,16 @@ The package automatically handles data downloading from https://gin.g-node.org/g
 ### Model Fitting
 ```bash
 # Fit banded ridge models for a subject (S01-S05)
-python scripts/01_fit-banded-ridge.py S01
+uv run python scripts/01_fit-banded-ridge.py S01
 
 # Generate visualizations for fitted models
-python scripts/02_plot-banded-ridge.py S01
+uv run python scripts/02_plot-banded-ridge.py S01
+```
+
+### Jupyter Notebooks
+```bash
+# Run jupyter notebooks in the notebooks/ directory
+uv run jupyter notebook notebooks/
 ```
 
 ### Testing
