@@ -1,1 +1,39 @@
-__pycache__
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# uv files
+uv.lock
+.python-version
+
+# Claude Code configuration
+.claude/
+
+# Data and output directories
+tutorial-data/
+figures/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Test cache
+.pytest_cache/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
