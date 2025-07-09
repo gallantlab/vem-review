@@ -10,8 +10,9 @@ This codebase implements neural response modeling using fMRI data with a focus o
 
 ### Prerequisites
 
-- Python 3.7+
+- Python 3.10+
 - CUDA-compatible GPU (recommended for model fitting)
+- [uv](https://docs.astral.sh/uv/) - Modern Python package manager
 
 ### Setup
 
@@ -21,11 +22,17 @@ git clone <repository-url>
 cd vem-review
 ```
 
-2. Install the package in development mode:
+2. Install uv (if not already installed):
 ```bash
-cd src
-pip install -e .
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
+
+3. Install the package and dependencies:
+```bash
+uv sync
+```
+
+This will automatically create a virtual environment and install all required dependencies.
 
 ### Dependencies
 
@@ -46,7 +53,7 @@ The project requires several scientific computing and neuroimaging libraries:
 **Data management:**
 - datalad (automatic data downloading)
 
-All dependencies are automatically installed via `pip install -e .`
+All dependencies are automatically installed via `uv sync` and defined in `pyproject.toml`
 
 ## Data
 
@@ -65,13 +72,13 @@ Data is automatically downloaded from https://gin.g-node.org/gallantlab/shortcli
 
 1. **Fit encoding models**:
    ```bash
-   python scripts/01_fit-banded-ridge.py S01
+   uv run python scripts/01_fit-banded-ridge.py S01
    ```
    This script fits banded ridge regression models using motion energy and WordNet features for subject S01. Replace `S01` with other subjects (`S02`, `S03`, `S04`, `S05`) as needed.
 
 2. **Generate visualizations**:
    ```bash
-   python scripts/02_plot-banded-ridge.py S01
+   uv run python scripts/02_plot-banded-ridge.py S01
    ```
    Creates cortical surface visualizations and analysis plots for the fitted models.
 
@@ -82,6 +89,11 @@ The `notebooks/` directory contains example analyses:
 - `example-fir-model.ipynb`: Demonstrates finite impulse response (FIR) model fitting
 - `simulate-noise-ceiling.ipynb`: Simulates noise ceiling analysis for model evaluation
 - `utils.py`: Utility functions for notebook analyses
+
+To run notebooks with the proper environment:
+```bash
+uv run jupyter notebook notebooks/
+```
 
 ## Model Architecture
 
@@ -113,8 +125,10 @@ vem-review/
 ├── README.md                    # This file
 ├── LICENSE.md                   # License information
 ├── CLAUDE.md                    # Development instructions
+├── pyproject.toml               # Modern Python project configuration
+├── .venv/                       # Virtual environment (created by uv)
 ├── src/
-│   ├── setup.py                 # Package installation
+│   ├── setup.py                 # Legacy package installation
 │   └── vemreview/
 │       ├── __init__.py
 │       ├── config.py            # Configuration and paths

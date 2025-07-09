@@ -1,0 +1,33 @@
+[project]
+name = "vemreview"
+version = "0.1.0"
+description = "Scripts to reproduce the figures of the VEM review paper"
+readme = "README.md"
+authors = [
+    { name = "Matteo Visconti di Oleggio Castello", email = "mvdoc@berkeley.edu" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "scipy",
+    "h5py",
+    "scikit-learn>=0.23",
+    "matplotlib",
+    "networkx",
+    "pydot",
+    "nltk",
+    "pycortex>=1.2.4",
+    "himalaya",
+    "pymoten",
+    "datalad",
+    "voxelwise_tutorials",
+    "torch>=2.0.0,<2.7.0",
+]
+
+[project.optional-dependencies]
+docs = ["sphinx", "sphinx_gallery", "numpydoc", "nbformat"]
+github = ["pytest"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
