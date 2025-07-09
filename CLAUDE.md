@@ -96,8 +96,22 @@ No automated test suite is configured. The package includes pytest in extras_req
 ```
 tutorial-data/          # Created by scripts, contains downloaded data and results
 ├── shortclips/         # Downloaded experimental data
-├── results/           # Fitted model results (.hdf files)
-└── figures/           # Generated visualizations
+│   ├── features/       # Motion energy and WordNet features
+│   ├── mappers/        # Cortical surface mappers per subject
+│   ├── responses/      # fMRI responses per subject
+│   ├── stimuli/        # Training and test stimuli
+│   └── utils/          # WordNet categories and graph structure
+├── results/           # Fitted model results
+│   └── {subject}_bandedridge.hdf  # Cross-validation scores, model weights
+└── figures/           # Generated visualizations per subject
+    └── {subject}/
+        ├── {subject}_ev.png                    # Explained variance visualization
+        ├── {subject}_joint_r2_scores.png       # Joint model R² scores
+        ├── {subject}_split_r2_cvscores.png     # Split model cross-validation scores
+        ├── {subject}_split_r2_scores.png       # Split model R² scores
+        ├── {subject}_wordnet_flatmap_pc1.png   # WordNet PC1 flatmap visualization
+        ├── {subject}_wordnet_flatmap_pc234.png # WordNet PC2-4 flatmap visualization
+        └── {subject}_wordnet_graph_*.png       # WordNet semantic graphs for specific ROIs
 ```
 
 ## Subject Data

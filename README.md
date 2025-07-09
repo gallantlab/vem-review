@@ -94,9 +94,26 @@ uv run jupyter notebook notebooks/
 
 Running the analysis scripts will generate:
 
-- **tutorial-data/**: Downloaded experimental data and fitted model results
-- **figures/**: Cortical surface visualizations and analysis plots
-- **Model weights**: Saved in HDF5 format for further analysis
+```
+tutorial-data/          # Created by scripts, contains downloaded data and results
+├── shortclips/         # Downloaded experimental data
+│   ├── features/       # Motion energy and WordNet features
+│   ├── mappers/        # Cortical surface mappers per subject
+│   ├── responses/      # fMRI responses per subject
+│   ├── stimuli/        # Training and test stimuli
+│   └── utils/          # WordNet categories and graph structure
+├── results/           # Fitted model results
+│   └── {subject}_bandedridge.hdf  # Cross-validation scores, model weights
+└── figures/           # Generated visualizations per subject
+    └── {subject}/
+        ├── {subject}_ev.png                    # Explained variance visualization
+        ├── {subject}_joint_r2_scores.png       # Joint model R² scores
+        ├── {subject}_split_r2_cvscores.png     # Split model cross-validation scores
+        ├── {subject}_split_r2_scores.png       # Split model R² scores
+        ├── {subject}_wordnet_flatmap_pc1.png   # WordNet PC1 flatmap visualization
+        ├── {subject}_wordnet_flatmap_pc234.png # WordNet PC2-4 flatmap visualization
+        └── {subject}_wordnet_graph_*.png       # WordNet semantic graphs for specific ROIs
+```
 
 ## Citation
 
