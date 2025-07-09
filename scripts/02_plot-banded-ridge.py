@@ -116,7 +116,7 @@ def plot_wordnet_graph_with_styles(
 
 ########################################################################################
 # Plot EV
-if False:
+if True:
     ev = load_ev(subject)
     alpha = get_alpha(ev)
     ax = plot_flatmap_from_mapper(
@@ -131,7 +131,7 @@ if False:
 
 ########################################################################################
 # Plot 2D flatmap with the full score
-if False:
+if True:
     full_scores = results[f"{subject}_joint_r2_scores"]
     full_scores[full_scores < 0] = 0
     alpha = get_alpha(full_scores)
@@ -155,7 +155,7 @@ if False:
 
 ########################################################################################
 # Plot 2D flatmap with the test split scores
-if False:
+if True:
     split_scores = results[f"{subject}_split_r2_scores"]
     full_scores = results[f"{subject}_joint_r2_scores"]
     full_scores[full_scores < 0] = 0
@@ -183,7 +183,7 @@ if False:
 
 ########################################################################################
 # Plot 2D flatmap with the train CV split scores
-if False:
+if True:
     split_scores = np.nanmean(results[f"{subject}_split_r2_cvscores"], 0)
     full_scores = split_scores.sum(0)
     full_scores[full_scores < 0] = 0
@@ -227,7 +227,7 @@ wordnet_weights = scale_weights(wordnet_weights, cvscores)
 alpha = get_alpha(np.linalg.norm(wordnet_weights, axis=0))
 
 
-if False and subject in voxels_to_show:
+if True and subject in voxels_to_show:
     # Plot wordnet graph for some specific voxels
     voxels = voxels_to_show[subject]
     for roi, idx in voxels.items():
