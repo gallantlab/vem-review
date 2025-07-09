@@ -4,21 +4,21 @@ This repository contains the code and analysis scripts to reproduce the figures 
 
 ## Overview
 
-This codebase implements neural response modeling using fMRI data with a focus on voxelwise encoding models. The project demonstrates how to fit banded ridge regression models using motion energy and WordNet semantic features to predict neural responses across different brain regions.
+This codebase implements a basic VEM analaysis on public data. The project demonstrates how to fit banded ridge regression models using motion energy and WordNet semantic features to predict neural responses across different brain regions. It is heavily based on the Voxelwise Encoding Model tutorials available [here](https://gallantlab.org/voxelwise_tutorials/).
 
 ## Installation
 
 ### Prerequisites
 
 - Python 3.10+
-- CUDA-compatible GPU (recommended for model fitting)
+- CUDA-compatible GPU (recommended for model fitting; fitting on CPU is possible but it will take more than one hour)
 - [uv](https://docs.astral.sh/uv/) - Modern Python package manager
 
 ### Setup
 
 1. Clone this repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/gallantlab/vem-review.git
 cd vem-review
 ```
 
@@ -46,7 +46,7 @@ The project requires several scientific computing and neuroimaging libraries:
 
 **Neuroimaging libraries:**
 - pycortex (cortical surface visualization)
-- himalaya (ridge regression models)
+- himalaya (efficient ridge regression models)
 - pymoten (motion energy features)
 - voxelwise_tutorials (utilities)
 
@@ -57,14 +57,9 @@ All dependencies are automatically installed via `uv sync` and defined in `pypro
 
 ## Data
 
-The project uses experimental data from the Gallant Lab's short clips dataset, which includes:
-
-- **fMRI responses**: Neural responses for 5 subjects (S01-S05) recorded during natural movie viewing
-- **Motion energy features**: Spatiotemporal filters capturing visual motion patterns
-- **WordNet semantic features**: Semantic category representations
-- **Cortical mappers**: Surface topology data for brain visualization
-
-Data is automatically downloaded from https://gin.g-node.org/gallantlab/shortclips when you run the analysis scripts.
+The project uses experimental data from the Gallant Lab's short clips dataset.
+The necessary data are automatically downloaded from https://gin.g-node.org/gallantlab/shortclips when you run the analysis scripts.
+The first time you run the script it will need to download approximately 5GB of data. 
 
 ## Usage
 
@@ -74,74 +69,25 @@ Data is automatically downloaded from https://gin.g-node.org/gallantlab/shortcli
    ```bash
    uv run python scripts/01_fit-banded-ridge.py S01
    ```
-   This script fits banded ridge regression models using motion energy and WordNet features for subject S01. Replace `S01` with other subjects (`S02`, `S03`, `S04`, `S05`) as needed.
+   This script fits banded ridge regression models with motion energy and WordNet features for subject S01. Replace `S01` with other subjects (`S02`, `S03`, `S04`, `S05`) as needed.
 
 2. **Generate visualizations**:
    ```bash
    uv run python scripts/02_plot-banded-ridge.py S01
    ```
-   Creates cortical surface visualizations and analysis plots for the fitted models.
+   Creates cortical surface visualizations and analysis plots for the fitted models. These are the plots shown in the figures of the paper.
 
 ### Jupyter Notebooks
 
-The `notebooks/` directory contains example analyses:
+The `notebooks/` directory contains simulations that are used in Boxes 3 and 4.
 
-- `example-fir-model.ipynb`: Demonstrates finite impulse response (FIR) model fitting
-- `simulate-noise-ceiling.ipynb`: Simulates noise ceiling analysis for model evaluation
+- `example-fir-model.ipynb`: Show how finite impulse response (FIR) models work
+- `simulate-noise-ceiling.ipynb`: Explains how the normalized correlation coefficient can account for different levels of noise
 - `utils.py`: Utility functions for notebook analyses
 
 To run notebooks with the proper environment:
 ```bash
 uv run jupyter notebook notebooks/
-```
-
-## Model Architecture
-
-The encoding models use **banded ridge regression** with multiple kernel types:
-
-1. **Motion energy features**: Spatiotemporal Gabor filters capturing local motion patterns
-2. **WordNet semantic features**: Hierarchical semantic category representations
-3. **Delayed features**: Temporal delays to capture hemodynamic response
-
-### Key Processing Steps
-
-1. **Data preprocessing**:
-   - Z-score fMRI responses within runs
-   - Average test responses across repetitions
-   - Demean features within runs
-
-2. **Cross-validation**:
-   - Leave-one-run-out validation respecting temporal structure
-   - Hyperparameter optimization using grid search
-
-3. **Evaluation**:
-   - Normalized correlation (CCnorm) between predicted and actual responses
-   - R² scores for model performance assessment
-
-## Directory Structure
-
-```
-vem-review/
-├── README.md                    # This file
-├── LICENSE.md                   # License information
-├── CLAUDE.md                    # Development instructions
-├── pyproject.toml               # Modern Python project configuration
-├── .venv/                       # Virtual environment (created by uv)
-├── src/
-│   ├── setup.py                 # Legacy package installation
-│   └── vemreview/
-│       ├── __init__.py
-│       ├── config.py            # Configuration and paths
-│       ├── io.py                # Data loading functions
-│       └── utils.py             # Visualization utilities
-├── scripts/
-│   ├── 01_fit-banded-ridge.py  # Main model fitting script
-│   └── 02_plot-banded-ridge.py # Visualization generation
-├── notebooks/
-│   ├── example-fir-model.ipynb
-│   ├── simulate-noise-ceiling.ipynb
-│   └── utils.py
-└── figures/                     # Generated visualizations (created by scripts)
 ```
 
 ## Output
@@ -158,10 +104,10 @@ If you use this code in your research, please cite:
 
 ```bibtex
 @article{vem-review,
-  title={Voxelwise Encoding Model Review},
-  author={[Authors]},
+  title={Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework},
+  author={{Visconti di Oleggio Castello}, Matteo and Deniz, Fatma and {Dupré la Tour}, Tom and Gallant, Jack L.},
   journal={[Journal]},
-  year={[Year]}
+  year={2025}
 }
 ```
 
@@ -175,7 +121,7 @@ For questions or issues, please open an issue on the GitHub repository.
 
 ## Acknowledgments
 
-This work builds upon the excellent neuroimaging analysis tools:
+This work builds upon these existing neuroimaging analysis tools:
 - [Himalaya](https://github.com/gallantlab/himalaya) for ridge regression
 - [Pycortex](https://github.com/gallantlab/pycortex) for cortical visualization
 - [Voxelwise Tutorials](https://github.com/gallantlab/voxelwise_tutorials) for analysis utilities
