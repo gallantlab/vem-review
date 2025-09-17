@@ -1,12 +1,11 @@
-# Voxelwise Encoding Model Review
+# Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework
 
-## Citation
+This repository contains the code and analysis scripts to reproduce the figures from the guide on the Voxelwise Encoding Model (VEM) framework:
 
-Visconti di Oleggio Castello, M.*, Deniz, F.*, Dupré la Tour, T., & Gallant, J. L. (2025). Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework. *PsyArXiv*. https://doi.org/10.31234/osf.io/nt2jq_v1
+> Visconti di Oleggio Castello\*, M., Deniz\*, F., Dupré la Tour, T., & Gallant, J. L. (2025). Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework. *PsyArXiv*. https://doi.org/10.31234/osf.io/nt2jq_v1
+> 
+> *equal contribution
 
-*equal contribution
-
-This repository contains the code and analysis scripts to reproduce the figures for the Voxelwise Encoding Model (VEM) review paper.
 
 ## Overview
 
