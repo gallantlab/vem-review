@@ -1,5 +1,11 @@
 # Voxelwise Encoding Model Review
 
+## Citation
+
+Visconti di Oleggio Castello, M.*, Deniz, F.*, Dupré la Tour, T., & Gallant, J. L. (2025). Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework. *PsyArXiv*. https://doi.org/10.31234/osf.io/nt2jq_v1
+
+*equal contribution
+
 This repository contains the code and analysis scripts to reproduce the figures for the Voxelwise Encoding Model (VEM) review paper.
 
 ## Overview
@@ -123,8 +129,10 @@ If you use this code in your research, please cite:
 @article{vem-review,
   title={Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework},
   author={{Visconti di Oleggio Castello}, Matteo and Deniz, Fatma and {Dupré la Tour}, Tom and Gallant, Jack L.},
-  journal={[Journal]},
-  year={2025}
+  journal={PsyArXiv},
+  year={2025},
+  doi={10.31234/osf.io/nt2jq_v1},
+  url={https://doi.org/10.31234/osf.io/nt2jq_v1}
 }
 ```
 

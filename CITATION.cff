@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Voxelwise Encoding Model Review"
+authors:
+  - family-names: "Visconti di Oleggio Castello"
+    given-names: "Matteo"
+    orcid: "https://orcid.org/0000-0001-7931-5272"
+  - family-names: "Deniz"
+    given-names: "Fatma"
+    orcid: "https://orcid.org/0000-0001-6051-7288"
+  - family-names: "Dupré la Tour"
+    given-names: "Tom"
+    orcid: "https://orcid.org/0000-0002-2674-1670"
+  - family-names: "Gallant"
+    given-names: "Jack L."
+    orcid: "https://orcid.org/0000-0001-7273-1054"
+repository-code: "https://github.com/gallantlab/vem-review"
+url: "https://github.com/gallantlab/vem-review"
+abstract: "This repository contains the code and analysis scripts to reproduce the figures for the Voxelwise Encoding Model (VEM) review paper."
+keywords:
+  - fMRI
+  - encoding models
+  - neuroscience
+  - machine learning
+  - voxelwise modeling
+license: BSD-3-Clause
+version: "1.0.0"
+date-released: "2025-09-17"
+preferred-citation:
+  type: article
+  title: "Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework"
+  authors:
+    - family-names: "Visconti di Oleggio Castello"
+      given-names: "Matteo"
+      orcid: "https://orcid.org/0000-0001-7931-5272"
+    - family-names: "Deniz"
+      given-names: "Fatma"
+      orcid: "https://orcid.org/0000-0001-6051-7288"
+    - family-names: "Dupré la Tour"
+      given-names: "Tom"
+      orcid: "https://orcid.org/0000-0002-2674-1670"
+    - family-names: "Gallant"
+      given-names: "Jack L."
+      orcid: "https://orcid.org/0000-0001-7273-1054"
+  journal: "PsyArXiv"
+  year: 2025
+  doi: "10.31234/osf.io/nt2jq_v1"
+  url: "https://doi.org/10.31234/osf.io/nt2jq_v1"
