@@ -2,7 +2,7 @@
 
 This repository contains the code and analysis scripts to reproduce the figures from the guide on the Voxelwise Encoding Model (VEM) framework:
 
-> Visconti di Oleggio Castello\*, M., Deniz\*, F., Dupré la Tour, T., & Gallant, J. L. (2025). Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework. *PsyArXiv*. https://doi.org/10.31234/osf.io/nt2jq_v1
+> Visconti di Oleggio Castello\*, M., Deniz\*, F., Dupré la Tour, T., & Gallant, J. L. (2025). Encoding models in functional magnetic resonance imaging: the Voxelwise Encoding Model framework. *PsyArXiv*. https://doi.org/10.31234/osf.io/nt2jq_v2
 > 
 > *equal contribution
 
@@ -130,8 +130,8 @@ If you use this code in your research, please cite:
   author={{Visconti di Oleggio Castello}, Matteo and Deniz, Fatma and {Dupré la Tour}, Tom and Gallant, Jack L.},
   journal={PsyArXiv},
   year={2025},
-  doi={10.31234/osf.io/nt2jq_v1},
-  url={https://doi.org/10.31234/osf.io/nt2jq_v1}
+  doi={10.31234/osf.io/nt2jq_v2},
+  url={https://doi.org/10.31234/osf.io/nt2jq_v2}
 }
 ```
 
