@@ -9,7 +9,7 @@ This repository contains the code and analysis scripts to reproduce the figures 
 
 ## Overview
 
-This codebase implements a basic VEM analaysis on public data. The project demonstrates how to fit banded ridge regression models using motion energy and WordNet semantic features to predict neural responses across different brain regions. It is heavily based on the Voxelwise Encoding Model tutorials available [here](https://gallantlab.org/voxelwise_tutorials/).
+This codebase implements a basic VEM analysis on public data. The project demonstrates how to fit banded ridge regression models using motion energy and WordNet semantic features to predict neural responses across different brain regions. It is heavily based on the Voxelwise Encoding Model tutorials available [here](https://gallantlab.org/voxelwise_tutorials/).
 
 ## Installation
 
